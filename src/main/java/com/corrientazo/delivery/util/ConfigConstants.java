@@ -9,6 +9,8 @@ public class ConfigConstants {
     public static final String CONFIG_FILE="app.properties";
     public static final String REPORT_PATH=
             appProperties.getProperty("report.path");
+    public static final String REPORT_PREFIX=
+            appProperties.getProperty("prefix.report.files");
     public static final int MAX_ORDERS_PER_DRON =
             Integer.valueOf(appProperties.getProperty("max.orders.per.dron"));
     public static final int WAITING_TIME_IN_MILLIS =

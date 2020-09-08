@@ -22,8 +22,10 @@ public class App
                 (ConfigConstants.WAITING_TIME_IN_MILLIS/ConfigConstants.SERVICE_TIME_IN_MILLIS));
         ExecutorService executor = Executors.newFixedThreadPool(poolSize);
         DronMessenger messenger;
+        String messengerName;
         for(int i=1; i< ConfigConstants.MAX_NUMBER_OF_DRONES; i++){
-            messenger = new DronMessenger("in"+String.format(ConfigConstants.NUMBER_FORMAT_FOR_FILES, i));
+            messengerName = ConfigConstants.REPORT_PREFIX+String.format(ConfigConstants.NUMBER_FORMAT_FOR_FILES, i);
+            messenger = new DronMessenger(messengerName);
             executor.submit(messenger);
         }
         executor.shutdown();
