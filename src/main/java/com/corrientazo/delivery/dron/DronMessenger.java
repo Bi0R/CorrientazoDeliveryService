@@ -4,6 +4,7 @@ import com.corrientazo.delivery.bean.Coordenate;
 import com.corrientazo.delivery.bean.Location;
 import com.corrientazo.delivery.io.DeliveryReportWriter;
 import com.corrientazo.delivery.movement.MovementPerformer;
+import com.corrientazo.delivery.movement.OrderInstructionsPerformer;
 import com.corrientazo.delivery.order.OrderQueue;
 import com.corrientazo.delivery.util.ConfigConstants;
 
@@ -37,13 +38,8 @@ public class DronMessenger extends Thread{
         }
         //Then deliver the orders
         reports = new ArrayList<>();
-        for(String order: orders){
-            origin = new Location(0,0, 'N');
-            char[] movements = order.toCharArray();
-            for(char movement: movements){
-                origin = MovementPerformer.performMovement(origin, movement);
-            }
-            reports.add(origin.toString());
+        for(String order:orders){
+            reports.add(OrderInstructionsPerformer.performInstructions(order));
         }
         String fileName=ConfigConstants.REPORT_PATH+ File.separator+this.getName()+".txt";
         DeliveryReportWriter.writeReport(fileName, reports);
