@@ -11,6 +11,10 @@ public class ConfigConstants {
             appProperties.getProperty("report.path");
     public static final int MAX_ORDERS_PER_DRON =
             Integer.valueOf(appProperties.getProperty("max.orders.per.dron"));
+    public static final int WAITING_TIME_IN_MILLIS =
+            Integer.valueOf(appProperties.getProperty("wait.time.in.millis"));
+    public static final int SERVICE_TIME_IN_MILLIS =
+            Integer.valueOf(appProperties.getProperty("service.time.in.millis"));
     public static final int MAX_NUMBER_OF_DRONES =
             Integer.valueOf(appProperties.getProperty("max.dron.messengers"));
     public static final int MAX_DISTANCE_IN_BLOCKS =

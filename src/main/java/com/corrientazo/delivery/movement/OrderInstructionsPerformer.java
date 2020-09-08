@@ -22,7 +22,6 @@ public class OrderInstructionsPerformer {
             for (char movement : movements) {
                 origin = MovementPerformer.performMovement(origin, movement);
             }
-
         return origin.toString();
     }
 
